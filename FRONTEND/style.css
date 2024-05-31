@@ -39,6 +39,13 @@ input[type="text"] {
     border: 1px solid #ccc;
 }
 
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
 input[type="submit"] {
     background-color: #828f8c;
     color: #0e0c0c;
@@ -79,4 +86,8 @@ th {
 }
 td {
     margin: 0 10px;
+}
+.idinp{
+border-style: none;
+
 }

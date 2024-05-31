@@ -3,10 +3,10 @@ window.onload = () => {
     formElement.onsubmit = async (e) => {
         e.preventDefault();
         let fromFormData = new FormData(formElement);
-        let  url='http://localhost/crud_biblioteca_octaviososa/BACKEND/CONTROLLER/bookController.php?function=add';      
-        
+        let url = 'http://localhost/crud_biblioteca_octaviososa/BACKEND/CONTROLLER/bookController.php?function=add';
+
         let config = {
-            method: 'POST', 
+            method: 'POST',
             body: fromFormData
         };
 
@@ -15,10 +15,20 @@ window.onload = () => {
 
         console.log(data);
 
-        if(data==true){
-            alert ('Libro Agregado Correctamente :)')
-        }else(
-            alert ('Error Al Agregar El Libro :(')
+        if (data == true) {
+            alert('Libro Agregado Correctamente :)')
+        } else (
+            alert('Error Al Agregar El Libro :(')
         )
     }
+
+    //  RESTRICCIONES DE CARACTERTES  //
+
+
+    //  SOLO NUMEROS  //
+    document.getElementById("price").addEventListener("input", (e) => {
+        let value = e.target.value;
+        e.target.value = value.replace(/[^A-Z\d-]/g, "");
+    });
+
 }
