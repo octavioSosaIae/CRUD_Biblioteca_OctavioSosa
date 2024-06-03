@@ -15,6 +15,36 @@ class book
         return $libros;
     }
 
+    function orderByDate()
+    {
+        $connection = new conn;
+        $conn = $connection->connection();
+        $sql = "SELECT * FROM libro ORDER BY fecha DESC;";
+        $response = $conn->query($sql);
+        $libros = $response->fetch_all(MYSQLI_ASSOC);
+        return $libros;
+
+    }
+
+    function orderByPrice()
+    {
+        $connection = new conn;
+        $conn = $connection->connection();
+        $sql = "SELECT * FROM libro ORDER BY precio ASC;";
+        $response = $conn->query($sql);
+        $libros = $response->fetch_all(MYSQLI_ASSOC);
+        return $libros;
+   }
+   function orderByName()
+   {
+       $connection = new conn;
+       $conn = $connection->connection();
+       $sql = "SELECT * FROM libro ORDER BY nombre ASC;";
+       $response = $conn->query($sql);
+       $libros = $response->fetch_all(MYSQLI_ASSOC);
+       return $libros;
+  }
+
     function createBook($name, $date, $price)
     {
 

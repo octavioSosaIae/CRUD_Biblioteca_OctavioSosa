@@ -1,4 +1,26 @@
 window.onload = () => {
+    
+    const form = document.querySelector("#formModify");
+    const controller = "http://localhost/crud_biblioteca_octaviososa/BACKEND/CONTROLLER/bookController.php?function=modify"
+    form.onsubmit = async function (e) {
+        e.preventDefault();
+        const formdata = new FormData(form);
+        const response = await fetch(controller, {
+            method: "post",
+            body: formdata
+    
+        })
+        const data = await response.json();
+        if (data) {
+            alert("Se modificaron los datos correctamente")
+            form.reset()
+            obtainBooks();
+        }
+        else {
+            alert("No se pudo modificar correctamente ")
+        }
+    
+    }
 
     obtainBooks();
 }
@@ -42,25 +64,4 @@ function modifyBooks(id) {
     document.querySelector("#name").value = book.nombre;
     document.querySelector("#date").value = book.fecha;
     document.querySelector("#price").value = book.precio;
-}
-const form = document.querySelector("#formModify");
-const controller = "http://localhost/crud_biblioteca_octaviososa/BACKEND/CONTROLLER/bookController.php?function=modify"
-form.onsubmit = async function (e) {
-    e.preventDefault();
-    const formdata = new FormData(form);
-    const response = await fetch(controller, {
-        method: "post",
-        body: formdata
-
-    })
-    const data = await response.json();
-    if (data) {
-        alert("Se modificaron los datos correctamente")
-        form.reset()
-        obtainBooks();
-    }
-    else {
-        alert("No se pudo modificar correctamente ")
-    }
-
 }
