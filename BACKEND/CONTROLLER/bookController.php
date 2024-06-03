@@ -17,12 +17,29 @@ switch ($function) {
     case "obtain":
 
         obtainBooks();
-        
+
         break;
 
     case "modify":
 
         modifyBooks();
+
+        break;
+
+    case "orderName":
+
+        orderByName();
+
+        break;
+
+    case "orderDate":
+
+        orderByDate();
+
+        break;
+
+    case "orderPrice":
+        orderByPrice();
 
         break;
 }
@@ -31,17 +48,16 @@ switch ($function) {
 function obtainBooks()
 {
     $result = (new book())->obtainBook();
-   echo json_encode($result);
-    
+    echo json_encode($result);
 }
 
 function addBooks()
 {
-    $name= $_POST['name'];
+    $name = $_POST['name'];
     $date = $_POST['date'];
-    $price = $_POST['price']; 
+    $price = $_POST['price'];
 
-    $result = (new book())->createBook($name,$date, $price);
+    $result = (new book())->createBook($name, $date, $price);
     echo json_encode($result);
 }
 
@@ -54,10 +70,28 @@ function deleteBooks()
 
 function modifyBooks()
 {
-    $name= $_POST['name'];
+    $name = $_POST['name'];
     $date = $_POST['date'];
-    $price = $_POST ['price'];
+    $price = $_POST['price'];
     $id = $_POST['id'];
-    $result = (new book())->modifyBook($name,$date,$price,$id);
+    $result = (new book())->modifyBook($name, $date, $price, $id);
+    echo json_encode($result);
+}
+
+function orderByName()
+{
+    $result = (new book())->orderByName();
+    echo json_encode($result);
+}
+
+function orderByDate()
+{
+    $result = (new book())->orderByDate();
+    echo json_encode($result);
+}
+
+function orderByPrice()
+{
+    $result = (new book())->orderByPrice();
     echo json_encode($result);
 }

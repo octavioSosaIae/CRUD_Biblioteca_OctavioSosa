@@ -40,6 +40,7 @@ function addEventSelect() {
 
         let value = filter.options[filter.selectedIndex].value;
 
+    
 
 
 

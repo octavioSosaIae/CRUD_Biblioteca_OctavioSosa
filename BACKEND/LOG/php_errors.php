@@ -46,3 +46,4 @@ Stack trace:
 #2 C:\xampp\htdocs\CRUD_Biblioteca_octaviososa\BACKEND\CONTROLLER\bookController.php(9): addBooks()
 #3 {main}
   thrown in C:\xampp\htdocs\CRUD_Biblioteca_octaviososa\BACKEND\MODEL\bookModel.php on line 24
+[03-Jun-2024 23:17:42 Europe/Berlin] PHP Warning:  Undefined array key "function" in C:\xampp\htdocs\CRUD_Biblioteca_octaviososa\BACKEND\CONTROLLER\bookController.php on line 4
